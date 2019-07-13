@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "263273356091",
+    "firebase_url": "https://androidnotificationdivyanshu.firebaseio.com",
+    "project_id": "androidnotificationdivyanshu",
+    "storage_bucket": "androidnotificationdivyanshu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263273356091:android:8ea623b6f5d124aa",
+        "android_client_info": {
+          "package_name": "app.gobusiness.com.androidnotificationdivyanshu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263273356091-vo91sgfmn3tm73hnilge041m8oed8gq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.gobusiness.com.androidnotificationdivyanshu",
+            "certificate_hash": "21e8a070d9784a30aa5ba01924bbbab0a89624d4"
+          }
+        },
+        {
+          "client_id": "263273356091-afiua6guviocjo0mgj9iachlsog76e07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW_r0oAO2XTFUL8hggeQf7RHxNcWH8CC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263273356091-afiua6guviocjo0mgj9iachlsog76e07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
