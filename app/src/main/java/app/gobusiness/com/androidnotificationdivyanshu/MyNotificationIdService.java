@@ -6,9 +6,7 @@ import android.os.IBinder;
 
 public class MyNotificationIdService extends Service {
 
-    public MyNotificationIdService() {
-        //super();
-    }
+
 
     @Override
     public IBinder onBind(Intent intent) {

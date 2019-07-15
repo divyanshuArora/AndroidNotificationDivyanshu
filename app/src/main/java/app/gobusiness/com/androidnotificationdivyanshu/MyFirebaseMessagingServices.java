@@ -50,59 +50,59 @@ public class MyFirebaseMessagingServices extends FirebaseMessagingService
 
 
 ////////////////////genereate notification using postman
-    private void notificationBuild(Map<String,String> messageBody)
-    {
-        Log.d("MEssaging","building notification");
-        Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.stalwart)).getBitmap();
-
-
-
-
-
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-
-        PendingIntent pendingIntent =  PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
-
-
-        String channel_id = getString(R.string.default_notification_channel_id);
-        Log.d("MEssaging","channel id: "+channel_id);
-
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channel_id)
-                .setSmallIcon(R.drawable.stalwart)
-                .setContentText(messageBody.get("text"))
-                .setContentTitle(messageBody.get("title"))
-                .setLargeIcon(bitmap)
-                .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
-                .setNumber(2)
-                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-
-        // Since android Oreo notification channel is needed.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
-
-            for (int i=0; i < notifications.length ; i++) {
-                if (notifications[i].getPackageName().equals(getApplicationContext().getPackageName())) {
-
-                    NotificationChannel channel = new NotificationChannel(channel_id, "Channel human readable title", NotificationManager.IMPORTANCE_HIGH);
-                    channel.setShowBadge(true);
-                   channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-                    notificationManager.createNotificationChannel(channel);
-                }
-            }
-        }
-
-        notificationManager.notify((int)System.currentTimeMillis() /* ID of notification */, notificationBuilder.build());
-
-    }
+//    private void notificationBuild(Map<String,String> messageBody)
+//    {
+//        Log.d("MEssaging","building notification");
+//        Bitmap bitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.stalwart)).getBitmap();
+//
+//
+//
+//
+//
+//        Intent intent = new Intent(this, MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//
+//
+//        PendingIntent pendingIntent =  PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
+//
+//
+//        String channel_id = getString(R.string.default_notification_channel_id);
+//        Log.d("MEssaging","channel id: "+channel_id);
+//
+//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channel_id)
+//                .setSmallIcon(R.drawable.stalwart)
+//                .setContentText(messageBody.get("text"))
+//                .setContentTitle(messageBody.get("title"))
+//                .setLargeIcon(bitmap)
+//                .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+//                .setNumber(2)
+//                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
+//                .setPriority(NotificationCompat.PRIORITY_HIGH)
+//                .setAutoCancel(true)
+//                .setContentIntent(pendingIntent);
+//
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//
+//
+//        // Since android Oreo notification channel is needed.
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
+//
+//            for (int i=0; i < notifications.length ; i++) {
+//                if (notifications[i].getPackageName().equals(getApplicationContext().getPackageName())) {
+//
+//                    NotificationChannel channel = new NotificationChannel(channel_id, "Channel human readable title", NotificationManager.IMPORTANCE_HIGH);
+//                    channel.setShowBadge(true);
+//                   channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+//                    notificationManager.createNotificationChannel(channel);
+//                }
+//            }
+//        }
+//
+//        notificationManager.notify((int)System.currentTimeMillis() /* ID of notification */, notificationBuilder.build());
+//
+//    }
 
 
 
@@ -137,7 +137,7 @@ public class MyFirebaseMessagingServices extends FirebaseMessagingService
             notificationManager.createNotificationChannel(channel);
         }
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        notificationManager.notify((int)System.currentTimeMillis() /* ID of notification */, notificationBuilder.build());
     }
 
     @Override
